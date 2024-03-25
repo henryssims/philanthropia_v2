@@ -76,7 +76,7 @@ export default function NonprofitCard({
               </DialogDescription>
             </DialogHeader>
             <form action="">
-              
+              <input ></input>
             </form>
           </DialogContent>
         </Dialog>
