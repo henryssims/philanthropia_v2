@@ -29,6 +29,9 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { z } from 'zod';
+import Link from 'next/link';
+
+
  
 const formSchema = z.object({
   amount: z.number().nonnegative({ message: "Must be greater than 0"})
@@ -45,23 +48,26 @@ export default function NonprofitCard({
 }) {
 
   return (
-    <Card className="w-300 h-400">
-      <CardHeader>
-        <CardTitle>{name}</CardTitle>
-        <Badge>{cause.replace("-", " ")}</Badge>
+    <Card >
+      <CardHeader className="flex flex-col items-center">
+        <CardTitle className="text-center">{name}</CardTitle>
+        <Badge className="flex justify-center w-1/2">{cause.replace("-", " ")}</Badge>
       </CardHeader>
-      <CardContent>
-        <Image 
-          src={image}
-          alt="Image representing the nonprofit"
-          width={200}
-          height={200}
-        />
+      <CardContent className="flex flex-col align-center">
+        <Link href={link || ""}>
+          <Image 
+            src={image}
+            alt="Image"
+            layout="responsive"
+            width={1/1}
+            height={1/1}
+          />
+        </Link>
         <p>{description}</p>
       </CardContent>
       <CardFooter>
         <Dialog>
-          <DialogTrigger>Donate</DialogTrigger>
+          <DialogTrigger className="m-auto"><Button>Donate</Button></DialogTrigger>
           <DialogContent>
             <DialogHeader>
               <DialogTitle>Donate to {name}</DialogTitle>

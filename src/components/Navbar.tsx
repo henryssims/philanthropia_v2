@@ -11,7 +11,7 @@ export default function Navbar() {
   const { data: session } = useSession();
 
   return (
-    <div className="flex justify-between items-center fixed w-full top-0 text-white p-4 bg-slate-300">
+    <div className="flex justify-between items-center fixed w-full top-0 text-white p-4 bg-slate-300 h-20">
       <div className="flex justify-center items-center gap-5">
         <Link 
           className={buttonVariants({ 'variant': 'link' })}

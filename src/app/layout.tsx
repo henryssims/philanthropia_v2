@@ -20,8 +20,9 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <Providers>
-          <div className="h-screen flex flex-col justify-center items-center">
+          <div className="flex flex-col justify-center items-center">
             <Navbar />
+            <div className="h-20"></div>
             {children}    
           </div>
         </Providers>

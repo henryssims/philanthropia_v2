@@ -25,4 +25,5 @@ model Donation {
   userId    Int      
   name      String
   amount    Int
+  cause     String
 }

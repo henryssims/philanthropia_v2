@@ -22,7 +22,7 @@ export default function CardLayout({
       try {
         if (query == "") {
           let response;
-          response = await fetch(`https://partners.every.org/v0.2/browse/${cause}?apiKey=${nonprofitApiKey}&take=3&page=${page}`);
+          response = await fetch(`https://partners.every.org/v0.2/browse/${cause}?apiKey=${nonprofitApiKey}&take=20&page=${page}`);
           response = await response.json();
 
           for (const nonprofit of response.nonprofits) {
@@ -82,7 +82,7 @@ export default function CardLayout({
   }, [query, currentPage, cause]);
   
   return (
-    <div className="grid grid-cols-3 grid-flow-row mt-10 mx-30 gap-5">
+    <div className="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 mt-10 mx-30 gap-5 px-20 ml-20">
       {nonprofits.map((nonprofit) => (
         <NonprofitCard
           key={nonprofit.name}
