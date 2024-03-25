@@ -7,7 +7,7 @@ For my project, I decided to begin to implement the feature I talked about durin
 I didn't have as much time as I would've liked to really polish this project, so here's some things I would have implemented next:
 - If you put in the wrong credentials on the sign in page, it should display an error message but it reloads the whole page.
 - The sign in/sign up with Google doesn't actually work, so I would implement that.
-- I would make the badges actually look cool so they are something people would actually spend money to get, even if they don't have intrinsic value.
+- I would make the badges actually look cool so they are something people would actually spend money to get, even if they don't have intrinsic value. Also, the user should get a pop up notification every time they get a new badge.
 - I would make the badge system more complex, where there are different tiers within each type of badge that upgrade as you donate more money towards that cause. I would also allow users to customize their profile by choosing which badges to display and in what order.
 
 ## An Honest Reflection
