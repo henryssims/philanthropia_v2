@@ -30,8 +30,8 @@ import {
 import { Input } from "@/components/ui/input";
 import { z } from 'zod';
 import Link from 'next/link';
-
-
+import { zodResolver } from "@hookform/resolvers/zod"
+import { useForm } from "react-hook-form"
  
 const formSchema = z.object({
   amount: z.number().nonnegative({ message: "Must be greater than 0"})
