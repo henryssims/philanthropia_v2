@@ -1,5 +1,5 @@
 import { getServerSession } from "next-auth";
-import { authOptions } from "./api/auth/[...nextauth]/auth";
+import authOptions from "./api/auth/[...nextauth]/options";
 import { User } from "./user";
 
 export default async function Page() {
