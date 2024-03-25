@@ -46,13 +46,6 @@ export default function CardLayout({
           response = await fetch(`https://partners.every.org/v0.2/search/${query}?apiKey=${nonprofitApiKey}&take=20&causes=${cause}`);
           response = await response.json();
           
-
-          for (const nonprofit of response.nonprofits) {
-            
-          }
-          let nonprofits;
-          nonprofits = await Promise.all(response.nonprofits)
-          
           for (const nonprofit of response.nonprofits) {
             const ein = nonprofit.ein;
             let n;
@@ -63,7 +56,7 @@ export default function CardLayout({
             const name = n.name;
             const description = n.description;
             const image = n.coverImageUrl;
-            const link = n.websiteUrl
+            const link = n.websiteUrl;
 
             const newNonprofit = {
               name: name,
@@ -73,7 +66,7 @@ export default function CardLayout({
               cause: cause
             }
 
-            data.push(n);
+            data.push(newNonprofit);
           }
         }
         return data;
