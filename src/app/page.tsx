@@ -1,18 +1,10 @@
-import { getServerSession } from "next-auth";
-import authOptions from "./api/auth/[...nextauth]/options";
 import { User } from "./user";
 
 export default async function Page() {
-  // get session on server
-  const session = await getServerSession(authOptions);
-
   return (
-    <>
-      <h1>Home Page</h1>
-      <h2>server session</h2>
-      <pre>{JSON.stringify(session)}</pre>
-      <h2>client session</h2>
-      <User />
-    </>
+    <div className="w-full h-screen flex flex-col justify-center items-center gap-10 bg-cyan-950">
+      <h1 className="text-8xl ">Philanthropia</h1>
+      <p className="w-1/2 text-2xl">Philanthropia is the easiest and most transparent way to donate and earn rewards while giving to the causes you care about.</p>
+    </div>
   );
 }

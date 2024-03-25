@@ -32,6 +32,7 @@ import { z } from 'zod';
 import Link from 'next/link';
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
+import { makeDonation } from '@/lib/actions';
  
 const formSchema = z.object({
   amount: z.number().nonnegative({ message: "Must be greater than 0"})
@@ -46,6 +47,12 @@ export default function NonprofitCard({
   description: string,
   cause: string
 }) {
+  const form = useForm<z.infer<typeof formSchema>>({
+    resolver: zodResolver(formSchema),
+    defaultValues: {
+      amount: 0,
+    },
+  })
 
   return (
     <Card >
@@ -66,18 +73,33 @@ export default function NonprofitCard({
         <p>{description}</p>
       </CardContent>
       <CardFooter>
-        <Dialog>
+        <Dialog >
           <DialogTrigger className="m-auto"><Button>Donate</Button></DialogTrigger>
-          <DialogContent>
+          <DialogContent className="text-black">
             <DialogHeader>
               <DialogTitle>Donate to {name}</DialogTitle>
               <DialogDescription>
                 Thank you for choosing to donate! How much would you like to give to {name}?
               </DialogDescription>
             </DialogHeader>
-            <form action="">
-              <input ></input>
-            </form>
+            <Form {...form}>
+              <form action={makeDonation} className="space-y-8">
+                <FormField
+                  control={form.control}
+                  name="amount"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Username</FormLabel>
+                      <FormControl>
+                        <Input placeholder="shadcn" {...field} />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+                <Button type="submit">Submit</Button>
+              </form>
+            </Form>
           </DialogContent>
         </Dialog>
       </CardFooter>

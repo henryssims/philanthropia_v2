@@ -19,13 +19,13 @@ export default function Page({
   const [currCause, setCurrCause] = useState("animals");
 
   return (
-    <div className="flex flex-col">
-      <div className="fixed bg-white w-full p-10">
+    <div className="flex flex-col bg-teal-950">
+      <div className="fixed bg-white w-full p-10 bg-teal-950">
         <Search />   
       </div>
       <div className="h-20"></div>
       <div className="flex">
-        <div className="flex flex-col justify-center align-center flex-wrap fixed mt-3 gap-1 px-4">
+        <div className="flex flex-col justify-center align-center flex-wrap fixed mt-3 gap-1 px-4 text-black">
           <CauseButton cause="animals" selected={currCause == "animals"} onClick={() => setCurrCause("animals")} />
           <CauseButton cause="art" selected={currCause == "art"} onClick={() => setCurrCause("art")} />
           <CauseButton cause="athletics" selected={currCause == "athletics"} onClick={() => setCurrCause("athletics")} />
